@@ -41,6 +41,8 @@ A data conversion business specializing in converting data, with an emphasis on 
 
 [Link to OpenData Dynamics X/Twitter](https://twitter.com/OpenDataDyn)
 
-[Link to OpenData Dynamics Reddit](https://www.reddit.com/user/OpenDataDynamics)
+[Link to OpenData Dynamics Reddit Profile](https://www.reddit.com/user/OpenDataDynamics)
+
+[Link to OpenData Dynamics Reddit Group](https://www.reddit.com/r/OpenDataDynamics)
 
 [Link to OpenData Dynamics GitHub Repository](https://github.com/TheCompAce/OpenData-Dynamics)

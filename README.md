@@ -46,6 +46,13 @@ We look forward to engaging with you!
 
 *Explore OpenData Dynamics' unique value and strategic vision. We warmly welcome potential investors, donors, and customers to discuss collaboration and investment opportunities in our cutting-edge solutions.*
 
+## Contribution Guidelines
+
+## Become a Contributor
+
+We're always looking for passionate individuals who can help us make this project even better. Whether you're an experienced developer or just getting started, your contributions are welcome. If you're interested in contributing, please don't hesitate to contact us through [email](mailto:opendatadynamics@gmail.com) or join our [community forum](https://github.com/OpenDataDyn/OpenData-Dynamics/discussions). Let's build something great together!
+
+
 ## Contacts
 
 [Link to OpenData Dynamics EMail](mailto:opendatadynamics@gmail.com)

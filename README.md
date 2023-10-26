@@ -25,7 +25,11 @@ Interested in learning more or contributing? Here's how you can take action:
 - **Fast and Timely Data Conversions**: We pride ourselves on delivering fast and reliable data conversion solutions. Don't let your projects lag—choose us for speedy results!
 - **Visit Our Website**: For more in-depth information and resources, check out our [official website](https://github.com/OpenDataDyn/OpenData-Dynamics).
 - **Contribute**: If you're a developer, your contributions to our open-source tools are welcome. Check out our [Contribution Guidelines](#).
+<<<<<<< Updated upstream
 - **Custom Solutions**: Need something more tailored? Contact us for custom data conversion solutions at [opendatadynamics@gmail.com](mailto:opendatadynamics@gmail.com).
+=======
+- **Custom Solutions**: Need something more tailored? Contact us for custom data conversion solutions at [contact@opendatadynamics.com](https://github.com/OpenDataDyn/OpenData-Dynamics).
+>>>>>>> Stashed changes
 
 We look forward to engaging with you!
 

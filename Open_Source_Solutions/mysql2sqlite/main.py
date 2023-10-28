@@ -116,55 +116,20 @@ def extract_constraints_from_sqlite_schema(sqlite_schema, table_name):
 
 def add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks):
     for fk in foreign_keys:
-        # Remove only the last character if it is a closing parenthesis
-        cleaned_fk = fk[:-1] if fk.endswith(")") else fk
-        alter_table_query = f"ALTER TABLE {table_name} ADD {cleaned_fk}"
-        if not alter_table_query.endswith(")"):
-            alter_table_query += ")"  # Add closing parenthesis if missing
-        logging.info(f"Executing query: {alter_table_query}")
+        alter_table_query = f"ALTER TABLE {table_name} ADD {fk}"
         mysql_cursor.execute(alter_table_query)
         logging.info(f"Added FOREIGN KEY constraint to table {table_name}")
 
     for check in checks:
-        # Remove only the last character if it is a closing parenthesis
-        cleaned_check = check[:-1] if check.endswith(")") else check
-        alter_table_query = f"ALTER TABLE {table_name} ADD {cleaned_check}"
-        if not alter_table_query.endswith(")"):
-            alter_table_query += ")"  # Add closing parenthesis if missing
-        logging.info(f"Executing query: {alter_table_query}")
+        alter_table_query = f"ALTER TABLE {table_name} ADD {check}"
         mysql_cursor.execute(alter_table_query)
         logging.info(f"Added CHECK constraint to table {table_name}")
-
-def sort_tables_based_on_foreign_keys(tables, sqlite_cursor):
-    sorted_tables = []
-    remaining_tables = {table[0]: set() for table in tables}
-
-    for table in tables:
-        table_name = table[0]
-        sqlite_cursor.execute(f"PRAGMA foreign_key_list({table_name})")
-        foreign_keys = sqlite_cursor.fetchall()
-        for fk in foreign_keys:
-            referenced_table = fk[2]
-            remaining_tables[table_name].add(referenced_table)
-
-    while remaining_tables:
-        for table, dependencies in list(remaining_tables.items()):
-            if dependencies.issubset(sorted_tables):
-                sorted_tables.append(table)
-                del remaining_tables[table]
-
-    return sorted_tables
 
 def transfer_data(sqlite_conn, mysql_conn):
     # Step 1: List all tables in SQLite database
     sqlite_cursor = sqlite_conn.cursor()
     sqlite_cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
     tables = sqlite_cursor.fetchall()
-
-    # Sort tables based on foreign key dependencies
-    sorted_tables = sort_tables_based_on_foreign_keys(tables, sqlite_cursor)
-
-    
     
     # Initialize MySQL cursor
     mysql_cursor = mysql_conn.cursor()
@@ -173,60 +138,49 @@ def transfer_data(sqlite_conn, mysql_conn):
     user_decisions = {}
 
     # First Loop: Check if tables exist in MySQL and gather user decisions
-    for table in sorted_tables:
-
-        print(f"Sorted Tables: {sorted_tables}")
-        print(f"Current Table: {table}")
+    for table in tables:
+        table_name = table[0]
         
         # Check if table exists in MySQL
-        mysql_cursor.execute(f"SHOW TABLES LIKE '{table}'")
+        mysql_cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
         result = mysql_cursor.fetchone()
         
         # If table exists, ask for user action
         if result:
             while True:  # Loop for user input
-                action = input(f"Table {table} already exists. Would you like to 'Replace' or 'Append'? ").lower()
+                action = input(f"Table {table_name} already exists. Would you like to 'Replace' or 'Append'? ").lower()
                 if action in ['replace', 'append']:
-                    logging.info(f"User chose to '{action}' table {table}.")
-                    user_decisions[table] = action
+                    logging.info(f"User chose to '{action}' table {table_name}.")
+                    user_decisions[table_name] = action
                     break  # Exit the loop if valid input
                 else:
                     logging.warning("Invalid option. Please enter 'Replace' or 'Append'.")
     
     # Second Loop: Execute the user decisions and transfer data
-    for table in sorted_tables:
-        action = user_decisions.get(table, None)
+    for table in tables:
+        table_name = table[0]
+        action = user_decisions.get(table_name, None)
         
         # Drop table if 'replace' action was chosen
         if action == 'replace':
-            mysql_cursor.execute(f"DROP TABLE {table}")
-            logging.info(f"Table {table} dropped.")
+            mysql_cursor.execute(f"DROP TABLE {table_name}")
+            logging.info(f"Table {table_name} dropped.")
         
         # Create table if it's a new table or 'replace' action was chosen
         if action != 'append':
-            sqlite_cursor.execute(f"PRAGMA table_info({table})")
+            sqlite_cursor.execute(f"PRAGMA table_info({table_name})")
             columns = sqlite_cursor.fetchall()
-
-            # Add a check for empty table
-            if not columns:
-                logging.error(f"Table {table} has no columns. Skipping.")
-                continue
-            
-            create_table_query = f"CREATE TABLE {table} ("
+            create_table_query = f"CREATE TABLE {table_name} ("
             for column in columns:
                 mysql_type = sqlite_to_mysql_type(column[2])
                 create_table_query += f"{column[1]} {mysql_type}, "
             create_table_query = create_table_query[:-2] + ")"
-            
-            # Log the query for debugging
-            logging.info(f"Executing query: {create_table_query}")
-
             mysql_cursor.execute(create_table_query)
-            logging.info(f"Table {table} created.")
+            logging.info(f"Table {table_name} created.")
 
 
             # Fetch and create indexes
-            sqlite_cursor.execute(f"PRAGMA index_list({table})")
+            sqlite_cursor.execute(f"PRAGMA index_list({table_name})")
             index_list = sqlite_cursor.fetchall()
             for index in index_list:
                 index_name = index[1]
@@ -234,27 +188,27 @@ def transfer_data(sqlite_conn, mysql_conn):
                 index_columns = [col[2] for col in sqlite_cursor.fetchall()]
                 index_columns_str = ",".join(index_columns)
                 unique = "UNIQUE" if index[2] else ""
-                create_index_query = f"CREATE {unique} INDEX {index_name} ON {table} ({index_columns_str})"
+                create_index_query = f"CREATE {unique} INDEX {index_name} ON {table_name} ({index_columns_str})"
                 mysql_cursor.execute(create_index_query)
                 logging.info(f"Index {index_name} created.")
 
             # Fetch SQLite table schema
-            sqlite_cursor.execute(f"SELECT sql FROM sqlite_master WHERE type='table' AND name='{table}'")
+            sqlite_cursor.execute(f"SELECT sql FROM sqlite_master WHERE type='table' AND name='{table_name}'")
             sqlite_schema = sqlite_cursor.fetchone()[0]
 
             # Extract constraints from SQLite schema
-            foreign_keys, checks = extract_constraints_from_sqlite_schema(sqlite_schema, table)
+            foreign_keys, checks = extract_constraints_from_sqlite_schema(sqlite_schema, table_name)
 
             # Add constraints to MySQL table
-            add_constraints_to_mysql_table(mysql_cursor, table, foreign_keys, checks)
+            add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
         
         # Transfer Data
-        sqlite_cursor.execute(f"SELECT * FROM {table}")
+        sqlite_cursor.execute(f"SELECT * FROM {table_name}")
         rows = sqlite_cursor.fetchall()
-        logging.info(f"Transferring {len(rows)} rows for table {table}.")
+        logging.info(f"Transferring {len(rows)} rows for table {table_name}.")
         for row in rows:
             values = ', '.join(['%s' for _ in row])
-            insert_query = f"INSERT INTO {table} VALUES ({values})"
+            insert_query = f"INSERT INTO {table_name} VALUES ({values})"
             try:
                 mysql_cursor.execute(insert_query, row)
             except Exception as e:

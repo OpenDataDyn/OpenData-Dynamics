@@ -1,0 +1,275 @@
+2023-10-26 22:38:44,235 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:38:44,245 - ERROR - Failed to connect to MySQL: (1045, "Access denied for user 'thakilla'@'localhost' (using password: YES)")
+2023-10-26 22:38:44,246 - ERROR - An error occurred while checking/creating the MySQL database: 'NoneType' object has no attribute 'cursor'
+2023-10-26 22:38:44,246 - ERROR - Unable to open the MySQL database - Server: localhost, Username: thakilla, Database: long_term
+2023-10-26 22:39:35,503 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:39:35,509 - ERROR - Failed to connect to MySQL: (1049, "Unknown database 'long_term'")
+2023-10-26 22:39:35,510 - ERROR - An error occurred while checking/creating the MySQL database: 'NoneType' object has no attribute 'cursor'
+2023-10-26 22:39:35,510 - ERROR - Unable to open the MySQL database - Server: localhost, Username: root, Database: long_term
+2023-10-26 22:42:08,407 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:42:08,413 - ERROR - Failed to connect to MySQL: (1049, "Unknown database 'long_term'")
+2023-10-26 22:42:08,413 - ERROR - An error occurred while checking/creating the MySQL database: 'NoneType' object has no attribute 'cursor'
+2023-10-26 22:42:08,414 - ERROR - Unable to open the MySQL database - Server: localhost, Username: root, Database: long_term
+2023-10-26 22:45:27,846 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:45:27,852 - ERROR - Failed to connect to MySQL: (1049, "Unknown database 'long_term'")
+2023-10-26 22:45:27,852 - ERROR - An error occurred while checking/creating the MySQL database: 'NoneType' object has no attribute 'cursor'
+2023-10-26 22:45:27,853 - ERROR - Unable to open the MySQL database - Server: localhost, Username: root, Database: long_term
+2023-10-26 22:50:25,438 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:50:25,445 - ERROR - Failed to connect to MySQL: (1049, "Unknown database 'long_term'")
+2023-10-26 22:50:25,445 - ERROR - An error occurred while checking/creating the MySQL database: 'NoneType' object has no attribute 'cursor'
+2023-10-26 22:50:25,445 - ERROR - Unable to open the MySQL database - Server: localhost, Username: root, Database: long_term
+2023-10-26 22:51:57,782 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:51:57,788 - INFO - Successfully connected to MySQL server
+2023-10-26 22:51:57,790 - INFO - Database long_term created.
+2023-10-26 22:51:57,792 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:52:04,623 - INFO - Database long_term dropped and recreated.
+2023-10-26 22:52:04,624 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:52:04,662 - INFO - Table responses created.
+2023-10-26 22:52:04,684 - INFO - Index idx_responses_trained created.
+2023-10-26 22:52:04,685 - INFO - Transferring 0 rows for table responses.
+2023-10-26 22:52:04,723 - INFO - Table vector_data created.
+2023-10-26 22:52:04,741 - INFO - Index idx_vector_data_response_id created.
+2023-10-26 22:52:04,741 - ERROR - An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 258, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 203, in transfer_data
+    add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 120, in add_constraints_to_mysql_table
+    mysql_cursor.execute(alter_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+2023-10-26 22:55:52,958 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:55:52,965 - INFO - Successfully connected to MySQL server
+2023-10-26 22:55:52,966 - INFO - Database long_term created.
+2023-10-26 22:55:52,968 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:56:01,599 - INFO - Database long_term dropped and recreated.
+2023-10-26 22:56:01,600 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:56:01,621 - INFO - Table responses created.
+2023-10-26 22:56:01,637 - INFO - Index idx_responses_trained created.
+2023-10-26 22:56:01,637 - INFO - Transferring 0 rows for table responses.
+2023-10-26 22:56:01,655 - INFO - Table vector_data created.
+2023-10-26 22:56:01,670 - INFO - Index idx_vector_data_response_id created.
+2023-10-26 22:56:01,670 - INFO - Executing query: ALTER TABLE vector_data ADD FOREIGN KEY(response_id) REFERENCES responses(id))
+2023-10-26 22:56:01,671 - ERROR - An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 261, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 206, in transfer_data
+    add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 121, in add_constraints_to_mysql_table
+    mysql_cursor.execute(alter_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+2023-10-26 22:58:19,469 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 22:58:19,475 - INFO - Successfully connected to MySQL server
+2023-10-26 22:58:19,477 - INFO - Database long_term created.
+2023-10-26 22:58:19,478 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:58:23,599 - INFO - Database long_term dropped and recreated.
+2023-10-26 22:58:23,601 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 22:58:23,620 - INFO - Table responses created.
+2023-10-26 22:58:23,637 - INFO - Index idx_responses_trained created.
+2023-10-26 22:58:23,638 - INFO - Transferring 0 rows for table responses.
+2023-10-26 22:58:23,656 - INFO - Table vector_data created.
+2023-10-26 22:58:23,672 - INFO - Index idx_vector_data_response_id created.
+2023-10-26 22:58:23,673 - INFO - Executing query: ALTER TABLE vector_data ADD FOREIGN KEY(response_id) REFERENCES responses(id
+2023-10-26 22:58:23,673 - ERROR - An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 263, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 208, in transfer_data
+    add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 122, in add_constraints_to_mysql_table
+    mysql_cursor.execute(alter_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")
+2023-10-26 23:00:25,526 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:00:25,532 - INFO - Successfully connected to MySQL server
+2023-10-26 23:00:25,533 - INFO - Database long_term created.
+2023-10-26 23:00:25,535 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:00:28,790 - INFO - Database long_term dropped and recreated.
+2023-10-26 23:00:28,791 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:00:28,817 - INFO - Table responses created.
+2023-10-26 23:00:28,833 - INFO - Index idx_responses_trained created.
+2023-10-26 23:00:28,834 - INFO - Transferring 0 rows for table responses.
+2023-10-26 23:00:28,852 - INFO - Table vector_data created.
+2023-10-26 23:00:28,868 - INFO - Index idx_vector_data_response_id created.
+2023-10-26 23:00:28,868 - INFO - Executing query: ALTER TABLE vector_data ADD FOREIGN KEY(response_id) REFERENCES responses(id)
+2023-10-26 23:00:28,887 - ERROR - An error occurred: (1215, 'Cannot add foreign key constraint')
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 269, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 214, in transfer_data
+    add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 125, in add_constraints_to_mysql_table
+    mysql_cursor.execute(alter_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1215, 'Cannot add foreign key constraint')
+2023-10-26 23:20:29,940 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:20:29,947 - INFO - Successfully connected to MySQL server
+2023-10-26 23:20:29,948 - INFO - Database long_term created.
+2023-10-26 23:20:29,950 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:20:33,581 - INFO - Database long_term dropped and recreated.
+2023-10-26 23:20:33,582 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:20:33,584 - ERROR - An error occurred: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 291, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 211, in transfer_data
+    mysql_cursor.execute(create_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1")
+2023-10-26 23:24:31,197 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:24:31,204 - INFO - Successfully connected to MySQL server
+2023-10-26 23:24:31,205 - INFO - Database long_term created.
+2023-10-26 23:24:31,206 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:24:34,613 - INFO - Database long_term dropped and recreated.
+2023-10-26 23:24:34,615 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:24:34,616 - ERROR - Table r has no columns. Skipping.
+2023-10-26 23:24:34,616 - ERROR - Table v has no columns. Skipping.
+2023-10-26 23:26:16,924 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:26:16,930 - INFO - Successfully connected to MySQL server
+2023-10-26 23:26:16,931 - INFO - Database long_term created.
+2023-10-26 23:26:16,933 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:26:19,523 - INFO - Appending to existing database long_term.
+2023-10-26 23:26:19,525 - ERROR - Table r has no columns. Skipping.
+2023-10-26 23:26:19,525 - ERROR - Table v has no columns. Skipping.
+2023-10-26 23:32:36,372 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:32:36,378 - INFO - Successfully connected to MySQL server
+2023-10-26 23:32:36,379 - INFO - Database long_term created.
+2023-10-26 23:32:36,380 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:32:39,787 - INFO - Appending to existing database long_term.
+2023-10-26 23:32:39,789 - ERROR - An error occurred: local variable 'table_name' referenced before assignment
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 304, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 168, in transfer_data
+    print(f"Current Table: {table_name}")
+UnboundLocalError: local variable 'table_name' referenced before assignment
+2023-10-26 23:34:25,852 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:34:25,858 - INFO - Successfully connected to MySQL server
+2023-10-26 23:34:25,860 - INFO - Database long_term created.
+2023-10-26 23:34:25,861 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:34:28,530 - INFO - Appending to existing database long_term.
+2023-10-26 23:34:28,533 - ERROR - Table r has no columns. Skipping.
+2023-10-26 23:34:28,533 - ERROR - Table v has no columns. Skipping.
+2023-10-26 23:35:19,940 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:35:19,945 - INFO - Successfully connected to MySQL server
+2023-10-26 23:35:19,947 - INFO - Database long_term created.
+2023-10-26 23:35:19,948 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:35:22,666 - INFO - Appending to existing database long_term.
+2023-10-26 23:35:22,669 - ERROR - Table r has no columns. Skipping.
+2023-10-26 23:35:22,669 - ERROR - Table v has no columns. Skipping.
+2023-10-26 23:36:41,540 - INFO - Successfully connected to SQLite database at long_term.db
+2023-10-26 23:36:41,546 - INFO - Successfully connected to MySQL server
+2023-10-26 23:36:41,547 - INFO - Database long_term created.
+2023-10-26 23:36:41,549 - INFO - Successfully connected to MySQL database long_term
+2023-10-26 23:36:44,050 - INFO - Appending to existing database long_term.
+2023-10-26 23:36:44,052 - INFO - Executing query: CREATE TABLE responses (id INT, response TEXT, trained TINYINT(1), timestamp DATETIME)
+2023-10-26 23:36:44,072 - INFO - Table responses created.
+2023-10-26 23:36:44,088 - INFO - Index idx_responses_trained created.
+2023-10-26 23:36:44,089 - INFO - Transferring 0 rows for table responses.
+2023-10-26 23:36:44,089 - INFO - Executing query: CREATE TABLE vector_data (id INT, vector BLOB, response_id INT)
+2023-10-26 23:36:44,107 - INFO - Table vector_data created.
+2023-10-26 23:36:44,123 - INFO - Index idx_vector_data_response_id created.
+2023-10-26 23:36:44,124 - INFO - Executing query: ALTER TABLE vector_data ADD FOREIGN KEY(response_id) REFERENCES responses(id)
+2023-10-26 23:36:44,141 - ERROR - An error occurred: (1215, 'Cannot add foreign key constraint')
+Traceback (most recent call last):
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 306, in main
+    transfer_data(sqlite_conn, mysql_conn)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 251, in transfer_data
+    add_constraints_to_mysql_table(mysql_cursor, table_name, foreign_keys, checks)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\main.py", line 125, in add_constraints_to_mysql_table
+    mysql_cursor.execute(alter_table_query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "F:\OpenData Dynamics\Open_Source_Solutions\sqlite2mysql\env\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1215, 'Cannot add foreign key constraint')

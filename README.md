@@ -68,3 +68,6 @@ We're always looking for passionate individuals who can help us make this projec
 [Link to OpenData Dynamics Reddit Group](https://www.reddit.com/r/OpenDataDynamics)
 
 [Link to OpenData Dynamics GitHub Repository](https://github.com/TheCompAce/OpenData-Dynamics)
+
+[Link to OpenData Dynamics Buy Me A Coffee](https://www.buymeacoffee.com/opendatadyn)
+

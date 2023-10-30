@@ -55,6 +55,8 @@ We're always looking for passionate individuals who can help us make this projec
 
 ## Contacts
 
+Phone Number: (252) 758-8848
+
 [Link to OpenData Dynamics EMail](mailto:opendatadynamics@gmail.com)
 
 [Link to OpenData Dynamics X/Twitter](https://twitter.com/OpenDataDyn)

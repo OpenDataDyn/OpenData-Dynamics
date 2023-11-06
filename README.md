@@ -19,6 +19,10 @@ A data conversion business specializing in converting data, with an emphasis on 
 - xml2json *This is a Python tool for converting XML files to JSON format. It is one of the initial tools developed under OpenData Dynamics, a data conversion business that focuses on open-source solutions and community engagement.*
 - xls2json *This is a Python tool for converting Excel files to JSON format. It is one of the initial tools developed under OpenData Dynamics, a data conversion business that focuses on open-source solutions and community engagement.*
 
+## Online Bots
+[Link to Poe Bot FormatFlipper](https://poe.com/FormatFlipper)
+
+
 ## A Call to Action: Get Involved!
 Interested in learning more or contributing? Here's how you can take action:
 
